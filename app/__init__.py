@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_restful import Api
 from .config import app_config
 
 def create_app():
@@ -11,3 +12,6 @@ def create_app():
 app = create_app()
 # load from config.py in root folder
 app.config.from_object(app_config["development"])
+
+from .api.requests import request
+app.register_blueprint(request)
