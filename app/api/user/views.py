@@ -56,15 +56,15 @@ class Login(Resource):
         Allows users to login to their accounts
         """
         parser = reqparse.RequestParser()
-        parser.add_argument('email', type=str, required=True)
+        parser.add_argument('username', type=str, required=True)
         parser.add_argument('password', type=str, required=True)
 
         args = parser.parse_args()
-        email = args['email']
+        username = args['username']
         password = args['password']
 
         for user in users_list:
-            if email == user['email'] and password == user['password']:
+            if username == user['username'] and password == user['password']:
                 access_token = "{}".format(
                     generate_token(user['id']))
                 return make_response(jsonify({"token": access_token,
