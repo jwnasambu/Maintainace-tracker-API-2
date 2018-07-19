@@ -104,5 +104,5 @@ class BaseTestCase(unittest.TestCase):
     #                            data=json.dumps(dict(
     #                                category=category,
     #                                 name=name,
-    #                                 priority=priority))
+    #                                 priority=priority)),
     #                          content_type='application/json', headers=({"token": token}))
